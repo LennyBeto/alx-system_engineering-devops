@@ -1,0 +1,86 @@
+# Simple Web Stack — One Server Hosting www.foobar.com
+
+## Whiteboard Diagram
+
+![Simple Web Stack Diagram](./White_board.jpg)
+
+## Description
+
+A single-server setup hosting a website accessible at www.foobar.com, using:
+
+* Server: A single machine with public IP 8.8.8.8.
+
+* Web Server: Nginx handles incoming requests.
+
+* Application Server: Runs the site's code (e.g., PHP-FPM, Node.js).
+
+* Database: MySQL stores all application data.
+
+* Domain: www.foobar.com is linked to the server via a DNS A record.
+
+---
+
+## **Request Flow**
+
+User Action: A user enters www.foobar.com into their web browser.
+
+DNS Lookup: The DNS system resolves www.foobar.com to its corresponding IP address, 8.8.8.8.
+
+Connection: The browser establishes a TCP connection to the server at 8.8.8.8.
+
+Nginx Processing: Nginx handles the incoming request. It either serves static files directly or forwards dynamic requests to the application server.
+
+Application Execution: The application server runs the necessary code, which may involve querying the MySQL database for information.
+
+Response: The final response is sent back from the application, through Nginx, and over the internet to the user's browser.
+
+---
+
+## **Key Concepts**
+
+### 1. What is a server?
+
+A computer that offers services to clients, hosting components like Nginx, the application, and the database.
+In this project, it hosts Nginx, the application runtime, and MySQL.
+
+### 2. Role of the domain name
+
+A domain name translates a name like foobar.com into an IP address, making the site easy to remember.
+
+### 3. Type of DNS record for `www` in `www.foobar.com`
+
+For www.foobar.com, the www is an A record that directly points to an IP address (e.g., 8.8.8.8).
+
+### 4. Role of the web server (Nginx)
+
+Manages incoming requests, serves static files, handles SSL/TLS encryption, and routes dynamic requests to the application server.
+
+### 5. Role of the application server
+
+Runs the site's business logic, processes user input, and generates dynamic content, often by communicating with the database.
+
+### 6. Role of the database (MySQL)
+
+Stores and retrieves structured application data (e.g., user info, posts, orders).
+
+### 7. Communication between server and user’s computer
+
+The server and user's computer communicate over the internet using TCP/IP, with HTTP or HTTPS as the specific protocol for web traffic.
+
+---
+
+## **Issues with this infrastructure**
+
+1. **Single Point of Failure (SPOF)**
+
+   - If the server fails, the entire website goes down, as there is no backup.
+
+
+2. **Scalability limitations**
+   
+   - The single server cannot handle a high volume of traffic, as all components must share the same limited resources 
+    (CPU, RAM, etc.), leading to a performance bottleneck.
+
+3. **Downtime during maintenance**
+
+   - Any updates or maintenance tasks on Nginx, the application code, or the database will cause the website to be unavailable.
