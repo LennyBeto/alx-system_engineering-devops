@@ -2,7 +2,7 @@
 
 ## Whiteboard Diagram
 
-![Simple Web Stack Diagram](./White_board.jpg)
+![Simple Web Stack Diagram](./white_board.jpg)
 
 ## Description
 
@@ -84,3 +84,4 @@ The server and user's computer communicate over the internet using TCP/IP, with 
 3. **Downtime during maintenance**
 
    - Any updates or maintenance tasks on Nginx, the application code, or the database will cause the website to be unavailable.
+
