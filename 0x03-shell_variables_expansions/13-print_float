@@ -1,2 +1,3 @@
+
 #!/bin/bash
-printf "%.4f\n" "$NUM" 
+printf "%.5f\n" "$NUM" 
